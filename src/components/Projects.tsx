@@ -30,7 +30,6 @@ import Space from "./Images/GameDev/Space.png";
 import Eyes from "./Images/GameDev/Eyes.png";
 import OctTree from "./Images/GameDev/OctTree.png";
 import impulse from "./Images/GameDev/impulse-er.mp4";
-import trailer from  "./Images/GameDev/Trailer.mp4";
 
 import VR from "./Images/Misc/VR.png";
 import Food from "./Images/Misc/Food.png";
@@ -40,7 +39,7 @@ import Project from "./Images/Backgrounds/Projects.jpg";
 import { GalleryHorizontal } from "lucide-react";
 
 type TextSection = { type?: "text"; img: string; alt: string; heading: string; text: React.ReactNode };
-type GalleryItem = { src: string; alt: string; type?: "image" | "video" };
+type GalleryItem = { src: string; alt: string; type?: "image" | "video" | "youtube" };
 type GallerySection = { type: "gallery"; heading: string; images: GalleryItem[] };
 type Section = TextSection | GallerySection;
 
@@ -194,8 +193,9 @@ const projects = [
       images: [
         { src: Eyes, alt: "Walking animation" },
         { src: OctTree, alt: "Walk cycle" },
-        { src: impulse, alt: "Run animation", type: "video"  },
-        {/*{ src: trailer, alt: "HouseGuard", type: "video"  },*/}]
+        { src: impulse, alt: "Run animation", type: "video" },
+        { src: "KdpQkL-xq_g", alt: "Trailer", type: "youtube" },
+      ]
       },
     ] as Section[],
   },
@@ -275,23 +275,40 @@ export default function Projects() {
                     gap: "20px",
                   }}
                 >
-                  {s.images.map((image, j) => (
-                  image.type === "video" ? (
-                    <video
-                      key={j}
-                      src={image.src}
-                      controls
-                      style={{ width: "100%", height: "250px", objectFit: "cover", borderRadius: "8px" }}
-                    />
-                  ) : (
-                    <img
-                      key={j}
-                      src={image.src}
-                      alt={image.alt}
-                      style={{ width: "100%", height: "250px", objectFit: "cover", borderRadius: "8px" }}
-                    />
-                  )
-                ))}
+                  {s.images.map((image, j) => {
+                    if (image.type === "youtube") {
+                      return (
+                        <iframe
+                          key={j}
+                          src={`https://www.youtube.com/embed/${image.src}`}
+                          title={image.alt}
+                          style={{ width: "100%", height: "250px", borderRadius: "8px", border: "none" }}
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                        />
+                      );
+                    }
+
+                    if (image.type === "video") {
+                      return (
+                        <video
+                          key={j}
+                          src={image.src}
+                          controls
+                          style={{ width: "100%", height: "250px", objectFit: "cover", borderRadius: "8px" }}
+                        />
+                      );
+                    }
+
+                    return (
+                      <img
+                        key={j}
+                        src={image.src}
+                        alt={image.alt}
+                        style={{ width: "100%", height: "250px", objectFit: "cover", borderRadius: "8px" }}
+                      />
+                    );
+                  })}
                 </div>
               </div>
             );
