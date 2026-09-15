@@ -1,0 +1,139 @@
+/* ==========================================================================
+   PORTFOLIO DESIGN SYSTEM & BASE STYLES
+   ========================================================================== */
+
+:root {
+  /* Colors */
+  --bg-light: #ffffff;
+  --bg-card: #f8fafc;
+  --primary: #4f46e5;
+  --primary-light: #6366f1;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+
+  /* Fonts */
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'Fira Code', monospace;
+}
+
+/* Base Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: light;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #ffffff;
+  color: #000000;
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* Layout Utilities */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section {
+  padding: 5rem 0;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+/* TODO: Add your custom CSS styles, animations, and utility classes below */
+.text-gradient {
+  background: linear-gradient(135deg, #ffffff 0%, var(--primary-light) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  background: #1e1e1e;
+  color: white;
+}
+
+.toolbar-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.navbar {
+  display: flex;
+  gap: 1.5rem;
+  padding: 0.5rem 1.5rem;
+  background: #2a2a2a;
+  border-bottom: 1px solid #3a3a3a;
+}
+
+.nav-link {
+  background: none;
+  border: none;
+  color: #ccc;
+  font-size: 0.95rem;
+  cursor: pointer;
+  padding: 0.25rem 0;
+}
+
+.nav-link:hover {
+  color: white;
+}
+
+.content {
+  padding: 1.5rem;
+}
+
+.left-half-text {
+  text-align: left; /* Aligns the text to the left side */
+  max-width: 90%; 
+  text-indent: 40px;
+  font-size: 20px;
+}
+
+.home-text {
+  text-align: left; /* Aligns the text to the left side */
+  margin-left: 40px;
+  font-size: 20px;
+}
+
+
+.textBoxStyle{
+  backgroundColor: "rgba(255, 255, 255, 0.9)",
+  borderRadius: "10px",
+  padding: "30px",
+  maxWidth: "600px",
+  margin: "0 auto",
+};
+
+.inputStyle{
+  width: "100%",
+  padding: "10px",
+  marginBottom: "15px",
+  borderRadius: "5px",
+  border: "1px solid #ccc",
+  fontSize: "16px",
+  boxSizing: "border-box" as const,
+};
