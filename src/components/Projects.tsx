@@ -36,7 +36,6 @@ import Food from "./Images/Misc/Food.png";
 import Decryptoid from "./Images/Misc/Decryptoid.png";
 
 import Project from "./Images/Backgrounds/Projects.jpg";
-import { GalleryHorizontal } from "lucide-react";
 
 type TextSection = { type?: "text"; img: string; alt: string; heading: string; text: React.ReactNode };
 type GalleryItem = { src: string; alt: string; type?: "image" | "video" | "youtube" };
